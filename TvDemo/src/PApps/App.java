@@ -6,6 +6,9 @@ paquete de la aplicacion de transmision y musica
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 /*
 MONTSERRAT ROJAS SANTILLAN
@@ -20,7 +23,11 @@ que se hagan dentro de las clases abstractas, estos seran accionados por medio d
  * Class App
  * Paez Moedano Alan Eduardo
  */
-public class App implements ActionListener {
+public class App implements ActionListener, Acciones{
+
+    static boolean delete() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     AppStreaming stream;
     AppMusica music;
     Acciones hacer;
@@ -99,11 +106,11 @@ generamos un nuevo panel para llamar a una nueva ventana que muestre las aplicac
             
             System.out.println("Activo la App Stream");
 	    up.dispose();
-            stream.abrir();
+            stream.abrir("Stream");
             
         }else if ("Musica".equals(e.getActionCommand())) {
             up.dispose();
-	    music.abrir();
+	    music.abrir("Musica");
             System.out.println("Activo la App Musica");
 	
         }
@@ -115,4 +122,30 @@ las acciones de los botones de transmision y sonidoesto con el fin de darle a la
 selecciona "stream" se realizara la transmision de imagen, pero si no, se realizara la accion de la aplicacion de la musica
 */
 
+    @Override
+    public void abrir(String app) {
+        System.out.println("Iniciando la intefaz de la APP "+app);
+        JFrame sot = new JFrame();
+        JButton cambio = new JButton("Fin");
+        
+        sot.setSize(1920,1080);
+        sot.setVisible(true);
+        sot.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        sot.setLayout(null);
+        sot.setTitle(app);
+       
+    }
+    @Override
+    public void cerrar() {
+        System.out.println("Cerrado de Aplicacion");
+        
+    }
+  //Jose Luis Osnaya Rosas
+    public void borrar(){
+         if (App.delete())
+   System.out.println("La app ha sido borrado satisfactoriamente");
+else
+   System.out.println("La app no puede ser borrado");  
+    
+    }
 }

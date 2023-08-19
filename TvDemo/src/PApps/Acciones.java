@@ -44,7 +44,7 @@ musica como para la de transmision y los accesos remotos para las clases abstrac
   //
   // Other methods
   //
-    public void abrir();
+    public void abrir(String app);
     public void cerrar();
      //Jose Luis Osnaya Rosas
     public void borrar();
